@@ -3,4 +3,4 @@ def Home(request):
     return render(request,'Home.html')
 
 def Login(request):
-    return render(request,'Login/login.html')
+    return render(request,'login.html')
