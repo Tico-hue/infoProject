@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Home, name = 'Home'),
     path('Login',views.Login, name = 'Login'),
     path('Home', views.Home, name = 'Home'),
+    path('Registro', views.createUser, name = 'Registro'),
+    path('LoguedIn', views.LoguedIn, name = 'LoguedIn'),
 ]
