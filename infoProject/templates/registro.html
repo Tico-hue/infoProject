@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% block content%}
+
+<div class=" col-8 text-center">
+  <h1>Registrate</h1>
+  <form method="POST" action="" class="form-signin">
+   {% csrf_token %}
+    {{form}}
+    
+    
+    
+    <button class="btn btn-lg btn-primary btn-block" type="submit" >Registrarte</button>
+    {% for message in messages%}
+      <p id="messages">{{message}}</p>
+    {% endfor %}
+    <p>ya tenes cuenta?</p><a href="{% url 'Login' %}">Ingresar</a>
+    
+    <p class="mt-5 mb-3 text-muted">© info-2020</p>
+  </form>
+  <a href=""></a>
+</div>
+
+{% endblock %}
+
