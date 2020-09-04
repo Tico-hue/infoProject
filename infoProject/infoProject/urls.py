@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Home, name = 'Home'),
-    path('Login',views.Login, name = 'Login'),
+    path('Login',auth.LoginView.as_view(template_name = "usuarios/login.html"), name = 'Login'),
+    path('Logout',auth.LogoutView.as_view(), name = 'logout'),
+
     path('Home', views.Home, name = 'Home'),
     path('Registro', views.createUser, name = 'Registro'),
     path('LoguedIn', views.LoguedIn, name = 'LoguedIn'),

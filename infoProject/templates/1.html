@@ -1,0 +1,61 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" type="text/css">
+</head>
+<body>
+    <div class="header__top__right__auth">
+        <a href="#" data-toggle="modal" data-target="#modalCategoria"><i class="fa fa-user" ></i> Login</a>
+    </div>
+    <!-- Modal Categoría-->
+  <div class="modal fade" id="modalCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- Form Categoria-->
+        <form id="formCategoria">
+          <div class="modal-body">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="nombre" class="col-form-label">Nombre: </label>
+                <input type="text" class="form-control" id="nombre" />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="tipoArticulo" class="col-form-label">Tipo de Artículo: </label>
+                <br />
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="customRadioInline1" name="tipoArticulo" class="custom-control-input" value="1" checked required />
+                  <label class="custom-control-label" for="customRadioInline1">Producto</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="customRadioInline2" name="tipoArticulo" class="custom-control-input" value="0" />
+                  <label class="custom-control-label" for="customRadioInline2">Materia Prima</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row col-md-12">
+              <label for="descripcion-categoria" class="col-form-label">Descripción: </label>
+              <input type="text" class="form-control" id="descripcion-categoria" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" id="btnGuardar" class="btn btn-success btnGuardarCategoria" data-dismiss="modal">
+              Guardar
+            </button>
+          </div>
+        </form>
+        <!-- Fin Form Producto-->
+      </div>
+    </div>
+</body>
+</html>
