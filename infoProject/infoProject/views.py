@@ -6,9 +6,10 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 
 def Home(request):
-    return render(request,'Home.html')
+    return render(request,'base.html')
 
 def Login(request):
+    ingresar(request)
     return render(request,'login.html')
 def LoguedIn(request):
     return render(request,'loguedIn.html')
@@ -17,7 +18,7 @@ def createUser(request):
     
     form = CreateUserForm()
     if request.method == 'POST':
-       # print('PRINTING POST : ' , request.POST)
+       print('PRINTING POST : ' , request.POST)
        form = CreateUserForm(request.POST)
        if form.is_valid():
            form.save()
@@ -31,12 +32,13 @@ def ingresar(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         print(request.POST)
-        # user = authenticate(request,username = username, password=password)
-        # if user is not None:
-        #     login(request,user)
-        #     messages.success(request,'Cuenta existe')
-        #     return redirect('LoguedIn')
-        # else: 
-        #     messages.info(request,'Usuario o contrasenia incorrectos')
-    # context = {}
-    #return render(request,'loguedIn.html',context)
+        user = authenticate(request,username = username, password=password)
+        if user is not None:
+            login(request,user)
+            messages.success(request,'Cuenta existe')
+            print(request)
+            return redirect('LoguedIn')
+        else: 
+            messages.info(request,'Usuario o contrasenia incorrectos')
+    context = {}
+    return render(request,'loguedIn.html',context)
