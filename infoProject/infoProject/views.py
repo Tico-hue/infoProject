@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 
 def Home(request):
-    return render(request,'base.html')
+    return render(request,'home.html')
 
 def Login(request):
     ingresar(request)

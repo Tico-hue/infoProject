@@ -12,6 +12,7 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" type="text/css">
     
     <!-- Css Styles -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
@@ -46,7 +47,7 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
+                <img src="{% static 'img/language.png' %}" alt="">
                 <div>English</div>
                 <span class="arrow_carrot-down"></span>
                 <ul>
@@ -54,10 +55,7 @@
                     <li><a href="#">English</a></li>
                 </ul>
             </div>
-            <div class="header__top__right__auth">
-                <a href="#" data-toggle="modal" data-target="#modalCategoria"><i class="fa fa-user" ></i> Login</a>
-            </div>
-           
+       
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
@@ -118,7 +116,10 @@
                 
                             
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user" data-toggle="modal" data-target="#modalCategoria"></i> Login</a>
+                                <a href="#" class="fa fa-user" data-toggle="modal" data-target="#modalCategoria">
+                                    <i >
+                                </i> Login
+                            </a>
                             </div>
                              <!-- Modal Categoría-->
                                 <div class="modal fade show" id="modalCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -776,7 +777,8 @@
     </footer>
     <!-- Footer Section End -->
   
-    <!-- Js Plugins -->
+    <!-- Js Plugins --> 
+  
     <script src="{% static 'assets/js/bootstrap.js' %}"></script>
     <script src="{% static 'assets/js/jquery.js' %}"></script>
     <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
@@ -788,10 +790,10 @@
     <script src="{% static 'js/mixitup.min.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+   
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 
 </body>
 
