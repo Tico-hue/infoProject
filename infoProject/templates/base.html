@@ -132,37 +132,31 @@
                                         </button>
                                         </div>
                                         <!-- Form Categoria-->
-                                        <form id="formCategoria">
-                                        <div class="modal-body">
-                                            <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="nombre" class="col-form-label">Nombre: </label>
-                                                <input type="text" class="form-control" id="nombre" />
+                                            <form method="POST">
+                                                {%csrf_token%}
+                                                {{form.errors}}
+                                                <input type="text" name="username" placeholder="USUARIO">
+                                                <input type="password" name="password" placeholder="PASSWORD">
+                                                <input type="submit" name="" value="ENVIAR">
+                                              
+                                            </form>
+                                            <br>
+                                            <br>
+                                            <form method="POST">
+                                                <span>Todavia no tenes cuenta?</span>                                          
+                                                <h1>FORMULARIO PARA REGISTRARSE </h1>
+                                                <form method= "POST">{% csrf_token %}
+                                                    {{form.as_p}}
+                                                    {{form.errors}}
+                                                    <input type="submit" value="Registrarse">
+
+                                            </form>
+                                            <div class="modal-footer">
+                                                <button type="submit" id="btnGuardar" class="btn btn-success btnGuardarCategoria" data-dismiss="modal">
+                                                Guardar
+                                                </button>
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="tipoArticulo" class="col-form-label">Tipo de Artículo: </label>
-                                                <br />
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="customRadioInline1" name="tipoArticulo" class="custom-control-input" value="1" checked required />
-                                                <label class="custom-control-label" for="customRadioInline1">Producto</label>
-                                                </div>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="customRadioInline2" name="tipoArticulo" class="custom-control-input" value="0" />
-                                                <label class="custom-control-label" for="customRadioInline2">Materia Prima</label>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            <div class="form-row col-md-12">
-                                            <label for="descripcion-categoria" class="col-form-label">Descripción: </label>
-                                            <input type="text" class="form-control" id="descripcion-categoria" />
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="submit" id="btnGuardar" class="btn btn-success btnGuardarCategoria" data-dismiss="modal">
-                                            Guardar
-                                            </button>
-                                        </div>
-                                        </form>
+                                        
                                         <!-- Fin Form Producto-->
                                     </div>
                                     </div>
