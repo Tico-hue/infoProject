@@ -26,5 +26,6 @@ urlpatterns = [
     path('Logout',auth.LogoutView.as_view(), name = 'logout'),
     path('1',views.bienahi, name = '1'),
 
+    
 
 ]

@@ -29,6 +29,7 @@ LOGIN_REDIRECT_URL = reverse_lazy('Home')
 LOGOUT_REDIRECT_URL = reverse_lazy('Home')
 # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

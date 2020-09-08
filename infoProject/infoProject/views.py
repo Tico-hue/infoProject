@@ -14,5 +14,6 @@ class login(CreateView):
     template_name = 'base.html'
     success_url = reverse_lazy('')
 
+
 def bienahi(request):
     return render(request,'1.html')
