@@ -26,8 +26,9 @@ SECRET_KEY = '&tt44d)y5bsbvls+ow%5a7m7l8b#!rdjuj-#kj5zgq_ep54^n^'
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
 LOGIN_REDIRECT_URL = reverse_lazy('Home')
-LOGOUT_REDIRECT_URL = reverse_lazy('Login')
+LOGOUT_REDIRECT_URL = reverse_lazy('Home')
 # Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
