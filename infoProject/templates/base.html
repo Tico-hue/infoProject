@@ -12,7 +12,8 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" type="text/css">
+
     <!-- Css Styles -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
@@ -44,7 +45,7 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
+                <img src="{% static 'img/language.png' %}" alt="">
                 <div>English</div>
                 <span class="arrow_carrot-down"></span>
                 <ul>
@@ -52,10 +53,7 @@
                     <li><a href="#">English</a></li>
                 </ul>
             </div>
-            <div class="header__top__right__auth">
-                <a href="#" data-toggle="modal" data-target="#modalCategoria"><i class="fa fa-user" ></i> Login</a>
-            </div>
-           
+
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
@@ -98,7 +96,7 @@
                     <div class="header__logo">
                         <a href="./index.html"><img src="{% static 'img/logo2.png' %}" alt=""></a>
                     </div>
-                </div>
+                  </div>
                     <div class="col-lg-4 mt-3">
                       <div class="hero__search__form d-block">
                         <form action="#">
@@ -110,63 +108,88 @@
                             <button type="submit" class="site-btn">SEARCH</button>
                         </form>
                       </div>
-                  </div>
-                    <div class="col-lg-4 col-md-6 mt-2">
+                    </div>
+                      <div class="col-lg-4 col-md-6 mt-2">
                         <div class="header__top__right">
-                
-                            
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user" data-toggle="modal" data-target="#modalCategoria"></i> Login</a>
+                          {% if user.is_authenticated %}
+                          <div class="header__top__right__auth">
+                          <li class="nav-item dropdown no-arrow">
+                            <a
+                              class="nav-link dropdown-toggle"
+                              href="#"
+                              id="userDropdown"
+                              role="button"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.username}}</span>
+                              <img class="img-profile rounded-circle" src="{% static 'ReciplasM/foto.jpg' %}" />
+                            </a>
+
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-m enu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                              <a class="dropdown-item" href="#">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Perfil
+                              </a>
+                              <a class="dropdown-item" href="#">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Configuracion
+                              </a>
+                              <a class="dropdown-item" href="#">
+                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Actividad
+                              </a>
                             </div>
-                             <!-- Modal Categoría-->
-                                <div class="modal fade show" id="modalCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        </div>
-                                        <!-- Form Categoria-->
-                                        <form id="formCategoria">
-                                        <div class="modal-body">
-                                            <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="nombre" class="col-form-label">Nombre: </label>
-                                                <input type="text" class="form-control" id="nombre" />
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="tipoArticulo" class="col-form-label">Tipo de Artículo: </label>
-                                                <br />
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="customRadioInline1" name="tipoArticulo" class="custom-control-input" value="1" checked required />
-                                                <label class="custom-control-label" for="customRadioInline1">Producto</label>
-                                                </div>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" id="customRadioInline2" name="tipoArticulo" class="custom-control-input" value="0" />
-                                                <label class="custom-control-label" for="customRadioInline2">Materia Prima</label>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            <div class="form-row col-md-12">
-                                            <label for="descripcion-categoria" class="col-form-label">Descripción: </label>
-                                            <input type="text" class="form-control" id="descripcion-categoria" />
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="submit" id="btnGuardar" class="btn btn-success btnGuardarCategoria" data-dismiss="modal">
-                                            Guardar
-                                            </button>
-                                        </div>
-                                        </form>
-                                        <!-- Fin Form Producto-->
-                                    </div>
-                                    </div>
-                                </div>
+                          </li>
+                    			<a href="{% url 'logout' %}">SALIR</a>
+                          </div>
+                      		{% else %}
+
+                          <div class="header__top__right__auth">
+                              <a href="{% url 'Login' %}" class="fa fa-user"><i > Login</i></a>
+                          </div>
+
+                          <div class="header__top__right__auth">
+                              <a href="#" class="fa fa-user" data-toggle="modal" data-target="#modalCategoria"><i > Registro</i></a>
+                          </div>
+
+                           <!-- Modal Categoría-->
+                              <div class="modal fade show" id="modalCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                  <div class="modal-content">
+                                      <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>
+                                      </div>
+                                          <form method="POST">
+                                              <span>Todavia no tenes cuenta?</span>
+                                              <h1>FORMULARIO PARA REGISTRARSE </h1>
+                                              <form method= "POST">{% csrf_token %}
+                                                  {{form.as_p}}
+                                                  {{form.errors}}
+                                                  <input type="submit" value="Registrarse">
+
+                                          </form>
+                                          <div class="modal-footer">
+                                              <button type="submit" id="btnGuardar" class="btn btn-success btnGuardarCategoria" data-dismiss="modal">
+                                              Guardar
+                                              </button>
+                                          </div>
+
+                                      <!-- Fin Form Producto-->
+                                  </div>
+                                  </div>
+                              </div>
+                      		{% endif %}
+
+
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
@@ -193,7 +216,7 @@
                         </ul>
                     </nav>
                 </div>
-                
+
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -234,8 +257,8 @@
 
                   </div>
                 </div>
-               
-            
+
+
             </div>
         </div>
     </section>
@@ -773,8 +796,9 @@
         </div>
     </footer>
     <!-- Footer Section End -->
-  
+
     <!-- Js Plugins -->
+
     <script src="{% static 'assets/js/bootstrap.js' %}"></script>
     <script src="{% static 'assets/js/jquery.js' %}"></script>
     <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
@@ -786,10 +810,10 @@
     <script src="{% static 'js/mixitup.min.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 
 </body>
 
