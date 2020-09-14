@@ -13,6 +13,3 @@ class signIn(CreateView):
     form_class = CreateUserForm
     template_name = 'base.html'
     success_url = reverse_lazy('Home')
-
-def bienahi(request):
-    return render(request,'1.html')

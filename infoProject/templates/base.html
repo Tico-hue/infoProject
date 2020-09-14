@@ -153,8 +153,8 @@
 
                           <div class="header__top__right__auth">
                             
-                            <button class="btn"  style="background-color: #7FAD39;">
-                                <a href="{% url 'Login' %}" class="fa fa-user" data-toggle="modal" data-target="#modalIngresar"><i > Ingresar</i></a>
+                            <button class="btn"  style="background-color: #7FAD39; ">
+                                <a href="{% url 'Login' %}" style='color: #fff; font-style: normal;font-weight: bold;' class="fa fa-user" data-toggle="modal" data-target="#modalIngresar"><i > Ingresar</i></a>
                             </button>
                             
                         </div>
@@ -178,12 +178,12 @@
                                                     <div class="col-lg-10">                                                         
                                                         <div class="row">
                                                             <div class="col-lg-12">
-                                                                <input type="text" id="username" name="username" class='form-control' type="text" placeholder="Nombre de Usuario">
+                                                                <input required type="text" id="username"  class='form-control' type="text" placeholder="Nombre de Usuario">
                                                             </div>
                                                         
                                                        
                                                             <div class="col-lg-12">
-                                                                <input type="password" class="form-control" id="password1" name="password" placeholder="Contraseña">
+                                                                <input required type="password" class="form-control" id="password1"  placeholder="Contraseña">
                                                                
                                                             </div>
                                                         </div>
@@ -213,7 +213,7 @@
 
                             <div class="header__top__right__auth">
                                 <button class="btn " style="background-color: #7FAD39;">
-                                    <a href="#" class="fa fa-user" data-toggle="modal" data-target="#modalRegistro"><i > Crear Cuenta</i></a>
+                                    <a href="{% url 'Registro' %}" class="fa fa-user" style='color: #fff; font-style:unset;font-weight: bold;' data-toggle="modal" data-target="#modalRegistro"><i > Crear Cuenta</i></a>
                                 </button>
                             </div>
 
