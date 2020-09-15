@@ -94,20 +94,20 @@
         <div class="header__top">
             <div class="container">
                 <div class="row flex-nowrap ">
-                  <div class="col-lg-4">
+                  <div class="col-lg-2">
                     <div class="header__logo">
                         <a href="./index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
                     </div>
                   </div>
-                    <div class="col-lg-4 mt-3">
+                    <div class="col-lg-6 mt-3">
                       <div class="hero__search__form d-block">
                         <form action="#">
                             <div class="hero__search__categories">
-                                All Categories
+                                Categorias
                                 <span class="arrow_carrot-down"></span>
                             </div>
                             <input type="text" placeholder="What do yo u need?">
-                            <button type="submit" class="site-btn">SEARCH</button>
+                            <button type="submit" class="site-btn">Buscar</button>
                         </form>
                       </div>
                     </div>
@@ -152,16 +152,74 @@
                       		{% else %}
 
                           <div class="header__top__right__auth">
-                              <a href="{% url 'Login' %}" class="fa fa-user"><i > Login</i></a>
-                          </div>
+                            
+                            <button class="btn"  style="background-color: #7FAD39;">
+                                <a href="{% url 'Login' %}" class="fa fa-user" data-toggle="modal" data-target="#modalIngresar"><i > Ingresar</i></a>
+                            </button>
+                            
+                        </div>
+                          <!-- Modal Login -->
+                          <div class="modal fade show" id="modalIngresar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered " role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" id="exampleModalLabel">Ingreso </h3>
+                                        
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    
+    
+                                            <form method="POST">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-10">                                                         
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <input type="text" id="username" name="username" class='form-control' type="text" placeholder="Nombre de Usuario">
+                                                            </div>
+                                                        
+                                                       
+                                                            <div class="col-lg-12">
+                                                                <input type="password" class="form-control" id="password1" name="password" placeholder="Contraseña">
+                                                               
+                                                            </div>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>    
+                                                    
+                                                    <div class="col-lg-1">  
+                                                    </div>
+                                               
+                                                    {{form.errors}}
+                                                    
+                                               
+                                                <div class="modal-footer">
+                                                    <button type="submit"  class="btn btn-success">
+                                                        Entrar
+                                                    </button>
+                                                </div>
+                                                
+                                            </form>
+                                        
+                                    </div>    
+                                  
+                                <!-- Fin Form  Registro-->
+                                </div>
+                            </div>
 
-                          <div class="header__top__right__auth">
-                              <a href="#" class="fa fa-user" data-toggle="modal" data-target="#modalRegistro"><i > Registro</i></a>
-                          </div>
+                            <div class="header__top__right__auth">
+                                <button class="btn " style="background-color: #7FAD39;">
+                                    <a href="#" class="fa fa-user" data-toggle="modal" data-target="#modalRegistro"><i > Crear Cuenta</i></a>
+                                </button>
+                            </div>
 
                            <!-- Modal Registro-->
                             <div class="modal fade show" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                <div class="modal-dialog modal-dialog-centered " role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h3 class="modal-title" id="exampleModalLabel">Registrarte </h3>
@@ -194,11 +252,11 @@
                                                                 </div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col-lg-6">
+                                                                <div class="col-lg-12">
                                                                     {{form.password1}}
                                                                 </div>
                                                                 
-                                                                <div class="col-lg-6">
+                                                                <div class="col-lg-12">
                                                                     {{form.password2}}
                                                                 </div>
                                                             </div>
@@ -221,10 +279,10 @@
                                             
                                         </div>    
                                       
-                            <!-- Fin Form  Registro-->
+                                    <!-- Fin Form  Registro-->
                                     </div>
                                 </div>
-                            </div>
+                            
                       		{% endif %}
 
 

@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 
 
 
-class login(CreateView):
+class signIn(CreateView):
     model = Usuario
     form_class = CreateUserForm
     template_name = 'base.html'

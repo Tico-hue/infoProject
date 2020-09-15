@@ -18,7 +18,7 @@ class CreateUserForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(UserCreationForm, self).__init__(*args, **kwargs)
         self.fields['password1'].widget.attrs.update({'class' : 'form-control','placeholder': 'Contraseña'})
-        self.fields['password2'].widget.attrs.update({'class' : 'form-control','placeholder': 'Repita la contraseña'})
+        self.fields['password2'].widget.attrs.update({'class' : 'form-control','placeholder': 'Confirme la contraseña'})
         for fieldname in ['username', 'email', 'first_name', 'last_name','password1','password2']:
             self.fields[fieldname].help_text = None
             self.fields[fieldname].label = ''
