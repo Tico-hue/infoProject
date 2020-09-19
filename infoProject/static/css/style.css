@@ -25,10 +25,19 @@
 9.  Contact
 10.  Footer Style
 -------------------------------------------------------------------*/
-
+li {
+	list-style-type: none;
+  }
+.avatar {
+	vertical-align: middle;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+  }
 /*----------------------------------------*/
 /* Template default CSS
 /*----------------------------------------*/
+
 
 html,
 body {
