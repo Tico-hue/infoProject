@@ -25,8 +25,8 @@ SECRET_KEY = '&tt44d)y5bsbvls+ow%5a7m7l8b#!rdjuj-#kj5zgq_ep54^n^'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
-LOGIN_REDIRECT_URL = reverse_lazy('Home')
-LOGOUT_REDIRECT_URL = reverse_lazy('Home')
+LOGIN_REDIRECT_URL = reverse_lazy('login')
+LOGOUT_REDIRECT_URL = reverse_lazy('login')
 # Application definition
 
 

@@ -8,12 +8,17 @@ from django.urls import reverse_lazy
 
 
 
-class login(CreateView):
+class signIn(CreateView):
     model = Usuario
     form_class = CreateUserForm
+<<<<<<< HEAD
     template_name = 'base.html'
     success_url = reverse_lazy('')
 
 
 def bienahi(request):
     return render(request,'1.html')
+=======
+    template_name = 'usuarios/registro.html'
+    success_url = reverse_lazy('login')
+>>>>>>> b58d08e0d28488e16e57443a1cedafde32c13264
