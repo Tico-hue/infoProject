@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+:diffg REfrom django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from .forms import CreateUserForm
 import os,sys
@@ -8,12 +8,8 @@ from django.urls import reverse_lazy
 
 
 
-class login(CreateView):
+class signIn(CreateView):
     model = Usuario
     form_class = CreateUserForm
-    template_name = 'base.html'
-    success_url = reverse_lazy('')
-
-
-def bienahi(request):
-    return render(request,'1.html')
+    template_name = 'usuarios/registro.html'
+    success_url = reverse_lazy('login')
