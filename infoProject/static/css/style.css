@@ -25,10 +25,25 @@
 9.  Contact
 10.  Footer Style
 -------------------------------------------------------------------*/
+.user-name{
+	font-family: Verdana, Geneva, Tahoma, sans-serif;	
+	font-size: small;
+	font-weight: bold;	
+}
+li {
+	list-style-type: none;
+  }
 
+.avatar {
+	vertical-align: middle;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+  }
 /*----------------------------------------*/
 /* Template default CSS
 /*----------------------------------------*/
+
 
 html,
 body {
