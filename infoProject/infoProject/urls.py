@@ -25,9 +25,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
-    path('', views.signIn.as_view(), name = 'Registro'),
-    path('',auth.LoginView.as_view(template_name = "base.html"), name = 'Login'),
+    path('Registro', views.signIn.as_view(), name = 'Registro'),
+    path('',auth.LoginView.as_view(template_name = "base.html"), name = 'login'),
     path('Logout',auth.LogoutView.as_view(), name = 'logout'),
     path('', include('blog.urls')),
     path('registro/', user_views.register, name='register'),
@@ -36,6 +35,8 @@ urlpatterns = [
     path('perfil/', user_views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+
+
 ]
 
 if settings.DEBUG:

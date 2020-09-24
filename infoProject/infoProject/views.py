@@ -11,5 +11,5 @@ from django.urls import reverse_lazy
 class signIn(CreateView):
     model = Usuario
     form_class = CreateUserForm
-    template_name = 'base.html'
-    success_url = reverse_lazy('Home')
+    template_name = 'usuarios/registro.html'
+    success_url = reverse_lazy('login')
