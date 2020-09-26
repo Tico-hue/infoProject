@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
-from .forms import ProductCreationForm
+from .forms import ProductCreationForm, ModificacionProducto
 from .models import Usuario
 from .models import Producto
 
@@ -14,7 +14,6 @@ from .models import Producto
 #def Listar(request):
 #	return render(request,'productos/listar.html')
 '''
-
 @login_required
 def Crear(request):
     if request.method == 'POST':
@@ -27,12 +26,17 @@ def Crear(request):
         form = ProductCreationForm()
 
     return render(request, 'users/login.html', {'form': form})
-
-
 '''
+
 class Crear(LoginRequiredMixin, CreateView, Usuario):
 	usuario = Usuario
 	model = Producto
 	form_class = ProductCreationForm
 	template_name = 'productos/crear.html'
-	success_url = reverse_lazy('crear')
+	success_url = reverse_lazy('login')
+
+class Modificar(UpdateView):
+	model = Producto
+	form_class = ModificacionProducto
+	template_name = 'productos/modificar.html'
+	success_url = reverse_lazy('login')

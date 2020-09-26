@@ -23,12 +23,10 @@ class ProductCreationForm(forms.ModelForm):
 
     class Meta:
         model = Producto
-        fields = ['nombre', 'descripcion', 'imagen']
+        fields = '__all__'
 
-    @transaction.atomic
-    def save(self):
-        producto = super().save(commit = False)
+class ModificacionProducto(forms.ModelForm):
 
-        producto.save()
-        Producto.objects.create(user = usuario)
-        return usuario
+	class Meta:
+		model = Producto
+		fields = ['nombre','descripcion','imagen']
