@@ -2,6 +2,29 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<<<<<<< HEAD
+<div class=" col-8 text-center">
+  <h1>Registrate</h1>
+  <form method="POST" action="" class="form-signin">
+   {% csrf_token %}
+    {{form}}
+
+
+
+    
+    <button class="btn btn-lg btn-primary btn-block" type="submit" >Registrarte</button>
+    {% for message in messages%}
+      <p id="messages">{{message}}</p>
+    {% endfor %}
+    <p>ya tenes cuenta?</p><a href="{% url 'Login' %}">Ingresar</a>
+
+    <p class="mt-5 mb-3 text-muted">© info-2020</p>
+  </form>
+  <a href=""></a>
+</div>
+
+{% endblock %}
+=======
 
 <div class="" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" >
     <div class="modal-dialog  " role="document">
@@ -73,3 +96,4 @@
         </div>
     </div>
 {% endblock content %}
+>>>>>>> b58d08e0d28488e16e57443a1cedafde32c13264
