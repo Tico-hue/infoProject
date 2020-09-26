@@ -1,4 +1,4 @@
-:diffg REfrom django.shortcuts import render, redirect
+from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from .forms import CreateUserForm, ProductCreationForm
 import os,sys
