@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
-
-{% block contenido %}
-
-
+{% block content %}
+{% if user.is_authenticated %}
+			<h1>SOY TODOS LOS PRODUCTOS CON FUNCION =)!</h1>
 			{% for p in productos %}
-				<p>---------------------------------------------------------</p>
 				<p><b>NOMBRE: </b>{{p.nombre}}</p>
 				<p><b>DESCRIPCION: </b>{{p.descripcion}}</p>
 				{% if p.imagen %}
@@ -17,5 +15,9 @@
 					<button type="submit">ELIMIAR ESTE PRODUCTO</button>
 				</form>
 			{% endfor %}
+{% else %}
+	<h1>Debe estar logeado para ver productos</h1>
+{% endif %}
+
 
 {% endblock %}

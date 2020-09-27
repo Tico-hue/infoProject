@@ -7,8 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
 from .forms import ProductCreationForm, ModificacionProducto
-from .models import Usuario
-from .models import Producto
+from .models import Usuario, Producto, Profile
 
 # VISTA BASADA EN FUNCIONES
 #def Listar(request):
@@ -35,8 +34,20 @@ class Crear(LoginRequiredMixin, CreateView, Usuario):
 	template_name = 'productos/crear.html'
 	success_url = reverse_lazy('login')
 
+
 class Modificar(UpdateView):
 	model = Producto
 	form_class = ModificacionProducto
 	template_name = 'productos/modificar.html'
-	success_url = reverse_lazy('login')
+	success_url = reverse_lazy('productos:mostrar')
+
+@login_required
+def Mostrar(request):
+    context = {}
+    todos = Producto.objects.all()
+    context['productos'] = todos
+    return render(request,'productos/mostrar.html',context)
+
+class Eliminar(DeleteView):
+	model = Producto
+	success_url = reverse_lazy('productos:mostrar')
