@@ -63,24 +63,52 @@
       
         <div class="tab-content tab-space">
           <div class="tab-pane active text-center gallery" id="studio">
-        <div class="row">
-          <div class="col-md-6 ml-auto">
-            <h5>Redes Sociales</h5>
-            <p><i class="fa fa-instagram"></i>{{profile_user.profile.instagram}}</p>
-            <p><i class="fa fa-twitter"></i>{{profile_user.profile.twitter}}</p>
-            <p>{{profile_user.profile.telefono}}</p>
+            <div class="row">
+                <div class="col-md-6 ml-auto">
+                  <h5>Redes Sociales</h5>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <i class="fa fa-instagram"></i>
+                      <br> 
+                      <i class="fa fa-twitter"></i>
+                      <br>
+                      <i class="fa fa-phone"></i>
+                      <br>
+                    </div>
+                    <div class="col-md-6">
+                      <p>    {{profile_user.profile.instagram}}  </p>
+                      
+                      <p>    {{profile_user.profile.twitter}}    </p>
+                      
+                      <p>    {{profile_user.profile.telefono}}   </p>
+                     
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-6 mr-auto">
+                  <h5>Ubicacion</h5>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80" class="rounded">
+                      <!-- <img src="{% static 'default-profile-map-image.jpg' %}" alt=""> -->
+                    </div>
+                  </div>    
+
+                </div>
+                
+              </div>
           </div>
-          <div class="col-md-6 mr-auto">
-            <h5>Ubicacion</h5>
-            
-            <img src="{% static 'default-profile-map-image.jpg' %}" alt="">
-          </div>
-        </div>
-      </div>
           <div class="tab-pane text-center gallery" id="works">
           <div class="row">
             <div class="col-md-3 ml-auto">
-                    <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80" class="rounded">
+              {% if user.username == profile_user.username %}
+              
+                <button class="btn btn-warning" > 
+                  <a href="{% url 'productos:crear' %}"> Crear Producto</a> 
+                </button>
+
+              {% endif%}
                     <img src="https://images.unsplash.com/photo-1506667527953-22eca67dd919?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6326214b7ce18d74dde5e88db4a12dd5&auto=format&fit=crop&w=750&q=80" class="rounded">
                     <img src="https://images.unsplash.com/photo-1505784045224-1247b2b29cf3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec2bdc92a9687b6af5089b335691830e&auto=format&fit=crop&w=750&q=80" class="rounded">  					</div>
             <div class="col-md-3 mr-auto">
@@ -102,7 +130,7 @@
               </div>
           </div>
         </div>
-        </div>
+        
 
         
       </div>
@@ -110,6 +138,9 @@
     {% if user.username == profile_user.username %}
       <button class="btn btn-warning" > 
         <a href="{% url 'editProfile' %}">  Editar  </a> 
+      </button>
+      <button class="btn btn-warning" > 
+        <a href="{% url 'productos:crear' %}"> Crear Producto</a> 
       </button>
     {% endif%}
           </div>
