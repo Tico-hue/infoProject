@@ -7,13 +7,16 @@ from apps.usuarios.models import Usuario
 from apps.productos.models import Producto
 from django.urls import reverse_lazy
 
+from django.contrib.messages.views import SuccessMessageMixin
 
 
-class signIn(CreateView):
+
+class signIn(SuccessMessageMixin,CreateView):
     model = Usuario
     form_class = CreateUserForm
-    template_name = 'usuarios/registro.html'
+    template_name = 'usuarios/registroContenedor.html'
     success_url = reverse_lazy('login')
+    success_message = " Su cuenta: %(username)s ha sido creada exitosamente "
 
 class CreateProduct(CreateView):
 	model = Producto
