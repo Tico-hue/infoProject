@@ -50,9 +50,13 @@ a .material-icons {
 }
 
 .profile-page .profile img {
-    max-width: 160px;
-    width: 100%;
-    margin: 0 auto;
+    height: 100px;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+
     -webkit-transform: translate3d(0,-50%,0);
     -moz-transform: translate3d(0,-50%,0);
     -o-transform: translate3d(0,-50%,0);
