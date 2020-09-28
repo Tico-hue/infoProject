@@ -1,0 +1,32 @@
+{%extends "base.html" %}
+{% load crispy_forms_tags %}
+{%block content%}
+    <input type="text" name="buscado" placeholder="Buscar..." id="buscado">
+    <button onclick="buscar();">Buscar</button>
+
+    <div id="resultados"></div>
+
+    <script type="text/javascript">
+        function buscar(){
+            var b = $('#buscado').val();
+            $.ajax ({
+                data: {'buscando':b},
+                url : "{% url 'busqueda' %}",
+                type : 'get',
+
+                success : function(x){
+                    if (x.estado == 'mal'){
+                        alert("NO EXISTE RESULTADO");
+                    }else{
+                        var div = $('#resultados')
+                        for (i = 0 ;i<= x.datos.length; i++){
+                            var w = '<p>Nombre: '+ x.datos[i].nombre + '</p>';
+                            w+= '<p>Descripcion: ' + x.datos[i].descripcion + '</p>';
+                            div.append(w);
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+{%endblock content%}
