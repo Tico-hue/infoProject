@@ -1,0 +1,213 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ogani | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" type="text/css">
+
+    <script src="https://use.fontawesome.com/951a7859ae.js"></script>
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+
+</head>
+
+<body>
+
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row flex-nowrap ">
+                  <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="{% url 'login' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                    </div>
+                  </div>
+                    <div class="col-lg-6 mt-3">
+                    
+                    </div>
+                      <div class="col-lg-4 col-md-6 mt-2">
+                        <div class="header__top__right">
+                          {% if user.is_authenticated %}
+                          <div class="header__top__right__auth">
+                          <li class="nav-item dropdown no-arrow">
+                            <a
+                              class="nav-link dropdown-toggle"
+                              href="#"
+                              id="userDropdown"
+                              role="button"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <span class="mr-2 d-none d-lg-inline text-gray-600 small user-name">{{user.username}}</span>
+                              <img class="img-profile avatar rounded-circle" src="{% static 'img/default-user-image.jpg' %}" />
+                            </a>
+                            <a href="{% url 'productos:crear' %}">Crear Producto</a>
+                            <a href="{% url 'productos:mostrar' %}">Ver Producto</a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-m enu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="{% url 'profile'%}">
+                                    <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Perfil
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Configuracion
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Actividad
+                                </a>
+                                <a class="dropdown-item" href="{% url 'logout' %}">
+                                    <i class="fa fa-sign-out fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Salir
+                                </a>
+    
+                            </div>
+                          </li>
+                                <a href="{% url 'logout' %}">SALIR</a>
+                          </div>
+                              {% else %}
+    
+                        <div class="header__top__right__auth">
+    
+                          
+                            <!-- Modal Login -->
+                            <div class="modal fade show" id="modalIngresar"  role="dialog" data-show="true"  >
+                                <div class="modal-dialog modal-dialog-centered " role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title" id="exampleModalLabel">Ingreso </h3>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+    
+                                        </div>
+    
+    
+                                            <form method="POST">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-lg-1"></div>
+                                                    <div class="col-lg-10">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 mt-2 mb-2">
+                                                                <input required type="text" name="username"  class='form-control' placeholder="Nombre de Usuario">
+                                                            </div>
+    
+    
+                                                            <div class="col-lg-12 mb-2 ">
+                                                                <input required type="password"  name="password" class="form-control"  placeholder="Contraseña">
+    
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 p-0">
+                                                            <button type="submit"  class="btn  btn-block btn-success">
+                                                                Entrar
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-lg-12 text-center  mt-2 mb-2" >
+                                                            <a href="#">Olvidaste tu contraseña?</a>
+                                                        </div>
+                                                    </div>
+    
+                                                </div>
+    
+    
+                                                    {{form.errors}}
+    
+    
+                                                <div class="modal-body border-top">
+                                                    <div class="row">
+                                                        <div class="col-lg-1"></div>
+                                                        <div class="col-lg-10 p-0">
+                                                            <button  type="text" class="btn btn-block btn-primary" >
+                                                            <a id="crearCuenta"  href="{% url 'Registro'%}"   style="color: #fff;font-weight: 400;font-size: 1rem;"> Crear Cuenta</a>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-lg-1"></div>
+                                                    </div>
+                                                    </div>
+    
+                                            </form>
+                                             <!-- Fin Form  Registro-->
+                                    </div>
+    
+    
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                            <div class="header__top__right__auth">
+                                <button class="btn " style="background-color: #7FAD39;">
+                                    <a href="{% url 'login' %}"  style='color: #fff; font-style:unset;font-weight: bold;' > Inicio</a>
+                                </button>
+                            </div>
+                            {% endif %}
+                           <!-- Modal Registro-->
+    
+    
+    
+    
+    
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+     
+    </header>
+    <!-- Header Section End -->
+    <div class="container-fluid">
+        {% include 'usuarios/registro.html' %}
+    </div>
+    <!-- Mostrar Perfiles  Begin -->
+        <!-- ACA INCLUIR CONTENIDO.HTML -->
+    <!-- Mostrar Perfiles End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'js/automodal.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/mixitup.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

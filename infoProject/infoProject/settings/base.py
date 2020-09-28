@@ -29,6 +29,7 @@ LOGIN_REDIRECT_URL = reverse_lazy('login')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.usuarios',
+    'apps.perfil',
+    'apps.productos',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [

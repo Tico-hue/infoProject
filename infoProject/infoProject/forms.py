@@ -3,6 +3,11 @@ from django.contrib.auth.forms import UserCreationForm
 import sys, os
 sys.path.append(os.path.abspath(os.path.join('..', 'apps')))
 from apps.usuarios.models import Usuario
+from apps.perfil.models import Profile
+from apps.productos.models import Producto
+
+from django.db import transaction
+
 
 class CreateUserForm(UserCreationForm):
 
@@ -23,4 +28,23 @@ class CreateUserForm(UserCreationForm):
             self.fields[fieldname].help_text = None
             self.fields[fieldname].label = ''
 
+    @transaction.atomic
+    def save(self):
+        usuario = super().save(commit = False)
+        usuario.save()
+        Profile.objects.create(user= usuario)
+        return usuario
 
+class ProductCreationForm(forms.ModelForm):
+
+    class Meta:
+        model = Producto
+        fields = ['nombre', 'descripcion', 'imagen']
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre de Producto'}),
+            'descripcion': forms.TextInput(attrs={'class': 'form-control','placeholder':'Describa su producto...'}),
+            'imagen': forms.ImageField (),
+        }
+
+    def __init__(self, *args, **kwargs):
+        pass

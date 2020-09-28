@@ -22,4 +22,4 @@ def profile(request):
         'u_form': u_form,
         'p_form': p_form
     }
-    return render(request, 'users/profile.html',context)
+    return render(request, 'usuarios/profile.html',context)

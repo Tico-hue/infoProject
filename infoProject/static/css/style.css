@@ -25,6 +25,9 @@
 9.  Contact
 10.  Footer Style
 -------------------------------------------------------------------*/
+.foto-perfil{
+	border-radius: 30px;
+}
 .user-name{
 	font-family: Verdana, Geneva, Tahoma, sans-serif;	
 	font-size: small;

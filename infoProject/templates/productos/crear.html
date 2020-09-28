@@ -1,0 +1,22 @@
+
+
+<h1>FORMULARIO PARA CREAR UN PRODUCTO!</h1>
+{{form.errors}}
+<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+    
+  <div class="row">
+      <div class="col-lg-12  mb-2 ">
+          {{form.nombre}}
+      </div>
+  </div>
+  <div class="row mb-2">
+      <div class="col-lg-6 ">
+          {{form.descripcion}}
+      </div>
+      <div class="col-lg-6">
+          {{form.imagen}}
+      </div>
+  </div>
+    <input type="submit" value="CREAR">
+</form>

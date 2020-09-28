@@ -18,7 +18,7 @@ from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth
 from django.contrib.auth import views as auth_views
-from users import views as user_views
+from apps.usuarios import views as user_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -28,16 +28,21 @@ urlpatterns = [
     path('Registro', views.signIn.as_view(), name = 'Registro'),
     path('',auth.LoginView.as_view(template_name = "base.html"), name = 'login'),
     path('Logout',auth.LogoutView.as_view(), name = 'logout'),
-    path('', include('blog.urls')),
-    path('registro/', user_views.register, name='register'),
-    path('perfil/', user_views.profile, name='profile'),
-    path('registro/', user_views.register, name='register'),
-    path('perfil/', user_views.profile, name='profile'),
-    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    # path('', include('apps.usuarios.urls')),
+    path('perfil/<username>', user_views.get_user_profile, name="userprofile"),
+#     path('registro/', user_views.register, name='register'),
+    path('perfil/', user_views.profile, name='editProfile'),
+    path('busqueda/',views.busqueda,name='busqueda'),
+
+#     path('registro/', user_views.register, name='register'),
+#     path('perfil/', user_views.profile, name='profile'),
+#     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+#     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+
+    path('Productos/',include('apps.productos.urls'))
 
 
-]
+ ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
