@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+			<h1>SOY TODOS LOS PRODUCTOS CON FUNCION =)!</h1>
+			{% for p in productos %}
+				<p><b>NOMBRE: </b>{{p.nombre}}</p>
+				<p><b>DESCRIPCION: </b>{{p.descripcion}}</p>
+				{% if p.imagen %}
+					<img src="{{p.imagen.url}}" width="200" height="200">
+				{% else %}
+					<p>NO TENGO IMAGEN</p>
+				{% endif %}
+				<a href="{% url 'productos:modificar' p.codigo %}">MODIFICAR ESTE PRODUCTO</a>
+				<form method="POST" action="{% url 'productos:eliminar' p.codigo %}">{% csrf_token %}
+					<button type="submit">ELIMIAR ESTE PRODUCTO</button>
+				</form>
+			{% endfor %}
+{% else %}
+	<h1>Debe estar logeado para ver productos</h1>
+{% endif %}
+
+
+{% endblock %}
