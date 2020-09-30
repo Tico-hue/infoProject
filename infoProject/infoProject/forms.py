@@ -5,7 +5,7 @@ sys.path.append(os.path.abspath(os.path.join('..', 'apps')))
 from apps.usuarios.models import Usuario
 from apps.perfil.models import Profile
 from apps.productos.models import Producto
-
+from django.contrib.auth.forms import AuthenticationForm
 from django.db import transaction
 
 
@@ -48,3 +48,7 @@ class ProductCreationForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         pass
+
+class CustomAuthenticationForm(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Username','required': True,'autofocus' : True}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password','required': True}))

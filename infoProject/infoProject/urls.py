@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth
-from django.contrib.auth import views as auth_views
 from apps.usuarios import views as user_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,7 +25,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Registro', views.signIn.as_view(), name = 'Registro'),
-    path('',auth.LoginView.as_view(template_name = "base.html"), name = 'login'),
+    path('', views.Base, name='base'),
+    path('login/',views.LoginUserView.as_view(template_name = "usuarios/loginContenedor.html"), name = 'login'),
     path('Logout',auth.LogoutView.as_view(), name = 'logout'),
     # path('', include('apps.usuarios.urls')),
     path('perfil/<username>', user_views.get_user_profile, name="userprofile"),

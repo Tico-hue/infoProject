@@ -17,6 +17,19 @@
   <div class="main main-raised">
   <div class="profile-content">
           <div class="container">
+
+            
+            {% if user.username == profile_user.username %}
+            <div style="text-align: right;">
+            <button class="btn btn-warning" > 
+                <a href="{% url 'editProfile' %}">  Editar  </a> 
+              </button>
+            </div>
+            {% endif%}
+                  </div>
+              </div>
+
+
               <div class="row">
                   <div class="col-md-6 ml-auto mr-auto">
                     <div class="profile">
@@ -63,35 +76,16 @@
       
         <div class="tab-content tab-space">
           <div class="tab-pane active text-center gallery" id="studio">
+            
             <div class="row">
-                <div class="col-md-6 ml-auto">
-                  <h5>Redes Sociales</h5>
-                  <br>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <i class="fa fa-instagram"></i>
-                      <br> 
-                      <i class="fa fa-twitter"></i>
-                      <br>
-                      <i class="fa fa-phone"></i>
-                      <br>
-                    </div>
-                    <div class="col-md-6">
-                      <p>    {{profile_user.profile.instagram}}  </p>
-                      
-                      <p>    {{profile_user.profile.twitter}}    </p>
-                      
-                      <p>    {{profile_user.profile.telefono}}   </p>
-                     
-                    </div>
-                </div>
-                </div>
-                <div class="col-md-6 mr-auto">
+    
+                <div class="col-xl">
                   <h5>Ubicacion</h5>
+                  
                   <div class="row">
-                    <div class="col-lg-12">
-                      <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80" class="rounded">
-                      <!-- <img src="{% static 'default-profile-map-image.jpg' %}" alt=""> -->
+                    <div class="col-auto">
+                   
+                     <img src="{% static 'UBIC.jpg' %}" alt="" class="rounded">
                     </div>
                   </div>    
 
@@ -109,9 +103,11 @@
                 </button>
 
               {% endif%}
+              {% include 'productos/mostrar.html' %}
                     <img src="https://images.unsplash.com/photo-1506667527953-22eca67dd919?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6326214b7ce18d74dde5e88db4a12dd5&auto=format&fit=crop&w=750&q=80" class="rounded">
                     <img src="https://images.unsplash.com/photo-1505784045224-1247b2b29cf3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec2bdc92a9687b6af5089b335691830e&auto=format&fit=crop&w=750&q=80" class="rounded">  					</div>
             <div class="col-md-3 mr-auto">
+            
                     <img src="https://images.unsplash.com/photo-1504346466600-714572c4b726?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6754ded479383b7e3144de310fa88277&auto=format&fit=crop&w=750&q=80" class="rounded">
                     <img src="https://images.unsplash.com/photo-1494028698538-2cd52a400b17?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83bf0e71786922a80c420c17b664a1f5&auto=format&fit=crop&w=334&q=80" class="rounded">
             </div>
@@ -119,15 +115,36 @@
       </div>
           <div class="tab-pane text-center gallery" id="favorite">
           <div class="row">
-            <div class="col-md-3 ml-auto">
-              <img src="https://images.unsplash.com/photo-1504346466600-714572c4b726?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6754ded479383b7e3144de310fa88277&auto=format&fit=crop&w=750&q=80" class="rounded">
-                    <img src="https://images.unsplash.com/photo-1494028698538-2cd52a400b17?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83bf0e71786922a80c420c17b664a1f5&auto=format&fit=crop&w=334&q=80" class="rounded">
-            </div>
-            <div class="col-md-3 mr-auto">
-              <img src="https://images.unsplash.com/photo-1505784045224-1247b2b29cf3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec2bdc92a9687b6af5089b335691830e&auto=format&fit=crop&w=750&q=80" class="rounded">  					
-              <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80" class="rounded">
-            <img src="https://images.unsplash.com/photo-1506667527953-22eca67dd919?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6326214b7ce18d74dde5e88db4a12dd5&auto=format&fit=crop&w=750&q=80" class="rounded">
+           
+            
+            
+              <div class="col-xl">
+                
+                <P ALIGN=center>Redes Sociales</p>
+                <br>
+                <div class="row">
+                  <div class="col-xl">
+                    <i class="fa fa-instagram"></i>
+                    <br> 
+                    <i class="fa fa-twitter"></i>
+                    <br>
+                    <i class="fa fa-phone"></i>
+                    <br>
+                  </div>
+                  <div class="col-md-6">
+                    <p>    {{profile_user.profile.instagram}}  </p>
+                    
+                    <p>    {{profile_user.profile.twitter}}    </p>
+                    
+                    <p>    {{profile_user.profile.telefono}}   </p>
+                    
+                    <p>    {{profile_user.profile.rubro}}   </p>
+                   
+                  </div>
               </div>
+              </div>
+            
+           
           </div>
         </div>
         
@@ -135,16 +152,7 @@
         
       </div>
     </div>
-    {% if user.username == profile_user.username %}
-      <button class="btn btn-warning" > 
-        <a href="{% url 'editProfile' %}">  Editar  </a> 
-      </button>
-      <button class="btn btn-warning" > 
-        <a href="{% url 'productos:crear' %}"> Crear Producto</a> 
-      </button>
-    {% endif%}
-          </div>
-      </div>
+  
 </div>
 
 <script src="{% static 'js/js-profile.js' %}" ></script>
