@@ -32,6 +32,7 @@ class CreateUserForm(UserCreationForm):
     def save(self):
         usuario = super().save(commit = False)
         usuario.save()
+       
         Profile.objects.create(user= usuario)
         return usuario
 

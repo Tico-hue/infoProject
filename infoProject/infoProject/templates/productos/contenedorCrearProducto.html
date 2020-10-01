@@ -58,7 +58,7 @@
                       
                         <div class="name">
                             <h3 class="title">{{user.username}}</h3>
-                            <h6>{{user.email}} </h6>
+                          
 
                         </div>
                     </div>
@@ -66,8 +66,10 @@
             </div>
         </div>
     </div>
-  
-    {% include 'productos/crear.html' %}
+    <div class="container">
+        {% block crearProducto %}
+        {% endblock %}
+    </div>
 </div>
               
 
@@ -86,5 +88,5 @@
  
        
           
-  </div>
+  </body>
 

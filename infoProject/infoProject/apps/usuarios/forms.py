@@ -32,11 +32,12 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['image','aboutus','instagram','twitter','telefono','rubro']
         widgets = {
-                'image':forms.FileInput(attrs={'class':'btn btn-success mb-4'}),
+                'image':forms.FileInput(attrs={'class':'btn  mb-4','id':'seleccionarImagen'},),
                 'instagram': forms.TextInput(attrs={'class': 'form-control mb-4'}),
                 'aboutus': forms.TextInput(attrs={'class': 'form-control mb-4'}),
                 'twitter': forms.TextInput(attrs={'class': 'form-control mb-4'}),
                 'telefono': forms.TextInput(attrs={'class': 'form-control mb-4'}),
+
 
             }
     def __init__(self, *args, **kwargs):

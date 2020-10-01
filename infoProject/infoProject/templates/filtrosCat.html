@@ -12,28 +12,21 @@
                         <span>Categorias</span>
                     </div>
                     <ul>
-                        <li><a href="#">Bebidas</a></li>
-                        <li><a href="#">Indumentaria</a></li>
-                        <li><a href="#">Panaderias</a></li>
-                        <li><a href="#">Verdulerias</a></li>
-                        <li><a href="#">Accesorios</a></li>
-                        <li><a href="#">Servicios</a></li>
-                        <li><a href="#">Servicios profesionales</a></li>
-                        <li><a href="#">Librerias</a></li>
-                        <li><a href="#">Ensenianza</a></li>
-                        <li><a href="#">Peluquerias</a></li>
+                        {% for i in rubros %}
+                        <li><a href="#" onclick="buscar('{{i}}');">{{i}}</a></li>
+                        {% endfor %}
                     </ul>
                     
                 </div>
                 
             </div>
             <div class="col-lg-9">
-                {% include 'perfil/mostrarsinlog.html' %}
+               
               <div class="container-fluid">
                 <br>
                 <br>
                 <div id="resultados">
-                        
+                    {% include 'perfil/mostrarsinlog.html' %}   
                 </div>
               </div>
             </div>

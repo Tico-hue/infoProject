@@ -5,7 +5,7 @@ import os,sys
 sys.path.append(os.path.abspath(os.path.join('..', 'apps')))
 from apps.usuarios.models import Usuario
 from apps.productos.models import Producto
-from apps.perfil.models import Profile
+from apps.perfil.models import Profile,Rubro
 from django.urls import reverse_lazy, reverse
 from django.http import Http404, HttpResponse
 import json
@@ -41,16 +41,54 @@ class CreateProduct(CreateView):
 	success_url = reverse_lazy('login')
 
 def Base(request):
+	lista_rubros = list()
+	lista_pares = list()
 	context = {}
+	rubros = Rubro.choices()
+	for i in rubros:
+		lista_rubros.append(i[1])
+	for i in rubros:
+		lista_paresi[0] = i[1]
+		
 	todos = Profile.objects.all()
 	context['perfiles'] = todos
+	context['pares'] = lista_pares
+	context['rubros'] = lista_rubros
 	return render(request, 'base.html', context)
 
-
-
 def busqueda(request):
+	
 	if request.is_ajax():
+		salida=None
 		valorBuscado = request.GET.get('buscando',None)
+		rubro = request.GET.get('porRubro',None)
+		if rubro:
+			print('rubro')
+			rubros = Rubro.choices()
+			for i in rubros:
+				if rubro == i[1]:
+					rubro=i[0]
+			resultadoProfile =  Profile.objects.filter(rubro__icontains = rubro)
+			respuesta = list()
+			listaIdUsuario=list()
+			if resultadoProfile:
+				for objeto in resultadoProfile:
+					listaIdUsuario.append(objeto.user_id)
+
+			listaIdUsuario = list(dict.fromkeys(listaIdUsuario))
+			for id in listaIdUsuario:
+				dicUser={}
+				dicUser['nombre'] =  Usuario.objects.filter(id__icontains = id).first().username
+				dicUser['rubro'] = Profile.objects.filter(user_id__id__icontains = id).first().rubro
+				dicUser['image'] = str(Profile.objects.filter(user_id__id__icontains = id).first().image)
+				dicUser['aboutus'] = Profile.objects.filter(user_id__id__icontains = id).first().aboutus
+				
+				respuesta.append(dicUser)
+				salida = {'datos':respuesta,'estado':'ok'}
+		else:
+			salida = {'estado':'mal'}
+		data = json.dumps(salida)
+		return HttpResponse(data, 'application/json')
 		if valorBuscado:
 
 			resultadoProd = Producto.objects.filter(nombre__icontains = valorBuscado) | Producto.objects.filter(descripcion__icontains = valorBuscado)
