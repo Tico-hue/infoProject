@@ -1,46 +1,45 @@
 <div class="hero__search__form d-block p-0" id="divSearchVar">
-    <form action="#">
-        <div>
-            <input style="width: 83%;" type="text" name="buscado" placeholder="Buscar..." id="buscado">
-            <button id="botonBuscar" type="button" class="site-btn" onclick="buscar();">Buscar</button>
-        </div>
-    </form>
+	<form action="#">
+		<div>
+			<input style="width: 83%;" type="text" name="buscado" placeholder="Buscar..." id="buscado">
+			<button id="botonBuscar" type="button" class="site-btn" onclick="buscar();">Buscar</button>
+		</div>
+	</form>
 
 
 
-    <script type="text/javascript">
+	<script type="text/javascript">
 
-       function buscar(){
+	   function buscar(){
 
-            var  b = $('#buscado').val();
+			var  b = $('#buscado').val();
 
-            $.ajax({
-                data:{'buscando':b},
-                url : "{% url 'busqueda' %}",
-                type: 'get',
-                success: function(x){
-                    var div = $('#resultados');
-                    div.empty();
-                    if (x.estado == 'mal'){
-                      var z = '<hr style="border:15px;"> No existe resultados para su búsqueda: ';
-                      z += b +'<hr style="border:2px;">';
-                        div.append(z);
-                    }else{
-                  
-                        for (i = 0;  i <= x.datos.length; i++){
-                            var w = `<div class="col-lg-6 text-center">
-                                        <img src="media/${x.datos[i].image}"><br>
-                                        <a href="">${x.datos[i].nombre}</a>
-                                        <p> ${x.datos[i].aboutus}</p>
-        
-                                     </div>`;
-                            console.log(w)
-                            div.append(w);
-                        }
-                    }
-                }
-            });}
-    
+			$.ajax({
+				data:{'buscando':b},
+				url : "{% url 'busqueda' %}",
+				type: 'get',
+				success: function(x){
+					var div = $('#resultados');
+					div.empty();
+					if (x.estado == 'mal'){
+					  var z = '<hr style="border:15px;"> No existe resultados para su búsqueda: ';
+					  z += b +'<hr style="border:2px;">';
+						div.append(z);
+					}else{
+						for (i = 0;  i <= x.datos.length; i++){
+							var w = `<div class="col-lg-6 text-center">
+										<img src="media/${x.datos[i].image}"><br>
+										<a href="">${x.datos[i].nombre}</a>
+										<p> ${x.datos[i].aboutus}</p>
+		
+									 </div>`;
+							console.log(w)
+							div.append(w);
+						}
+					}
+				}
+			});}
+
 
 
 </script>
