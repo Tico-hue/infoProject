@@ -24,7 +24,11 @@ class ProductCreationForm(forms.ModelForm):
     class Meta:
         model = Producto
         fields = ['nombre','descripcion','imagen','codigo']
-
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control','placeholder':'Nombre de Producto'}),
+            'descripcion': forms.TextInput(attrs={'class': 'form-control','placeholder':'Describa su producto...'}),
+            # 'imagen': forms.ImageField (),
+        }
 class ModificacionProducto(forms.ModelForm):
 
 	class Meta:

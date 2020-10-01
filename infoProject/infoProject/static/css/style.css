@@ -25,13 +25,23 @@
 9.  Contact
 10.  Footer Style
 -------------------------------------------------------------------*/
+#divSearchVar{
+	margin-left: 4.7rem;
+}
+#botonBuscar{
+	letter-spacing: 2.5px;
+
+}
+#botonGuardar{
+	background-color:  #7fad39;
+}
 .foto-perfil{
 	border-radius: 30px;
 }
 .user-name{
 	font-family: Verdana, Geneva, Tahoma, sans-serif;	
 	font-size: small;
-	font-weight: bold;	
+	font-weight: 500;	
 }
 li {
 	list-style-type: none;
@@ -209,7 +219,7 @@ ol {
 	top: 0;
 	left: 0;
 	z-index: 999999;
-	background: #000;
+	background: rgb(255, 255, 255);
 }
 
 .loader {
@@ -229,19 +239,19 @@ ol {
 	0% {
 		-webkit-transform: rotate(0deg);
 		transform: rotate(0deg);
-		border: 4px solid #f44336;
+		border: 4px solid #7fad39;
 		border-left-color: transparent;
 	}
 	50% {
 		-webkit-transform: rotate(180deg);
 		transform: rotate(180deg);
-		border: 4px solid #673ab7;
+		border: 4px solid #39ad4c;
 		border-left-color: transparent;
 	}
 	100% {
 		-webkit-transform: rotate(360deg);
 		transform: rotate(360deg);
-		border: 4px solid #f44336;
+		border: 4px solid #3cf436;
 		border-left-color: transparent;
 	}
 }
@@ -249,17 +259,17 @@ ol {
 @-webkit-keyframes loader {
 	0% {
 		-webkit-transform: rotate(0deg);
-		border: 4px solid #f44336;
+		border: 4px solid #7fad39;
 		border-left-color: transparent;
 	}
 	50% {
 		-webkit-transform: rotate(180deg);
-		border: 4px solid #673ab7;
+		border: 4px solid #39ad4c;
 		border-left-color: transparent;
 	}
 	100% {
 		-webkit-transform: rotate(360deg);
-		border: 4px solid #f44336;
+		border: 4px solid #3cf436;
 		border-left-color: transparent;
 	}
 }
@@ -621,7 +631,7 @@ ol {
 
 .hero__categories__all span {
 	font-size: 18px;
-	font-weight: 700;
+	font-weight: 500;
 	color: #ffffff;
 }
 

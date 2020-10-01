@@ -45,12 +45,8 @@ class Modificar(UpdateView):
 	template_name = 'productos/modificar.html'
 	success_url = reverse_lazy('productos:mostrar')
 
-@login_required
-def Mostrar(request):
-	context = {}
-	todos = Producto.objects.all()
-	context['productos'] = todos
-	return render(request,'productos/mostrar.html',context)
+
+
 
 class Eliminar(DeleteView):
 	model = Producto

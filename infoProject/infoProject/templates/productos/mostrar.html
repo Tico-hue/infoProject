@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
-{% block content %}
-{% if user.is_authenticated %}
+
+{% block productosperfil %}
+
 			<h1>SOY TODOS LOS PRODUCTOS CON FUNCION =)!</h1>
 			{% for p in productos %}
 				<p><b>NOMBRE: </b>{{p.nombre}}</p>
@@ -10,14 +10,15 @@
 				{% else %}
 					<p>NO TENGO IMAGEN</p>
 				{% endif %}
+				{% if user.is_authenticated %}
 				<a href="{% url 'productos:modificar' p.codigo %}">MODIFICAR ESTE PRODUCTO</a>
 				<form method="POST" action="{% url 'productos:eliminar' p.codigo %}">{% csrf_token %}
 					<button type="submit">ELIMIAR ESTE PRODUCTO</button>
 				</form>
+				{% endif %}
 			{% endfor %}
-{% else %}
-	<h1>Debe estar logeado para ver productos</h1>
-{% endif %}
+
+
 
 
 {% endblock %}

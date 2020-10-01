@@ -1,72 +1,59 @@
 {% extends 'usuarios/perfilContenedor.html'%}
 {% load crispy_forms_tags %}
 {% block perfil %}
-    <div class="section">
+    <h2 class="text-center mt-4">Editar Perfil</h2>
+    <div class="section mt-5">
       <div class="row">
         
-        <div class="media">
-          <div class="col-lg-5">
+        <div class="col-lg-1"></div>
+          <div class="col-lg-3">
             <img class="account-img foto-perfil" src="{{user.profile.image.url }}">
           </div>
-          <div class="col-lg-7">
-
-              <div class="media-body text-center">
+        <div class="col-lg-1"></div>
+        
+          <div class="col-lg-7 my-auto">
+            
+              <div class="text-center ">
                 <h2 class="account-heading">{{user.username}}</h2>
                 <p class="text-secondary">{{user.email}}</p>
               </div>
 
           </div>
-
-        </div>
+ 
       </div>
+      
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">
-                    Informacion de perfil
-                </legend>
-                <div class="row container">
-
-                    <div class="col-lg-6">
-                      {{ u_form.username|as_crispy_field}}
-                    </div>
-                    
+           
+                         
+              <div class="row">
+                <div class="col-lg-6 mt-3 ">
+                  <label for="">Foto de Perfil</label>{{p_form.image|as_crispy_field}}
+                </div><div class="col-lg-6 mt-3">
+                  <label for="">Redes Sociales</label>{{p_form.instagram|as_crispy_field}}
                 </div>
-
-                <div class="row container">
-
-                    <div class="col-lg-6">
-                      {{ u_form.email|as_crispy_field}}
-                    </div>
-
+              </div>
+              <div class="row">
+                 <div class="col-lg-6 mt-3 ">
+                  <label >Descripcion</label>{{p_form.aboutus|as_crispy_field}}
+                </div><div class="col-lg-6 mt-3 ">
+                  <label >Twitter</label>{{p_form.twitter|as_crispy_field}}
                 </div>
-                <!-- as_crispy_field -->
-                {{ p_form|crispy}}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Actualizar</button>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 mt-3">
+                 <label for="">Telefono</label>{{p_form.telefono|as_crispy_field}}
+                </div>
+                <div class="col-lg-6 mt-4">
+                  <br><button id="botonGuardar" class="btn btn-block btn-success" type="submit">Guardar</button>    
+                </div>  
             </div>
+          
+        
+         
+                
         </form>
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Productos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sobre nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contacto</a>
-            </li>
-          </ul>
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Lorem ipsum</div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">{{ user.profile.aboutus }}</div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-              <p>{{user.profile.instagram}}</p>
-              <p>{{user.profile.twitter}}</p>
-              <p>{{user.profile.telefono}}</p>
-            </div>
-          </div>
+       
   </div>
 
 
