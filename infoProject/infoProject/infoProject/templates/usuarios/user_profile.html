@@ -1,0 +1,142 @@
+{%extends "usuarios/perfilContenedor.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{%block perfil %}
+
+<head>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" type="text/css">
+
+  <script src="https://use.fontawesome.com/951a7859ae.js"></script>
+  <!-- Css Styles -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+<link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+<link rel="stylesheet" href="{% static 'css/profile-styles.css' %}">
+</head>
+<body class="profile-page">
+
+
+  <div class="main main-raised">
+  <div class="profile-content">
+          <div class="container">
+            {% if user.username == profile_user.username %}
+
+            <button class="btn btn-warning" >
+              <a href="{% url 'productos:crear' %}"> Crear Producto</a>
+            </button>
+            <button class="btn btn-warning" >
+              <a href="{% url 'editProfile' %}"> Editar perfil</a>
+            </button>
+
+          {% endif%}
+
+              <div class="row">
+                <div class="col-md-6 ml-auto mr-auto">
+                  <div class="profile">
+
+                          <img src="{{profile_user.profile.image.url }}" class="img-raised rounded-circle img-circle">
+
+                      <div class="name">
+                          <h3 class="title">{{profile_user.username}}</h3>
+                          <h6>{{profile_user.email}} </h6>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+              <div class="description text-center ">
+                <p style="font-size: medium;">{{profile_user.profile.aboutus}}</p>
+              </div>
+      <div class="row">
+        <div class="col-md-6 ml-auto mr-auto">
+                      <div class="profile-tabs">
+                        <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+
+                          <li class="nav-item">
+                              <a class="nav-link" href="#works" role="tab" data-toggle="tab">
+                                <i class="material-icons">shop</i>
+                                  Productos
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
+                                <i class="material-icons">call</i>
+                                  Contacto
+                              </a>
+                          </li>
+                        </ul>
+                      </div>
+          </div>
+          </div>
+
+        <div class="tab-content tab-space">
+
+          <div class="tab-pane text-center gallery" id="works">
+            <div class="row">
+              {% include 'productos/mostrar.html' %}
+            </div>
+          </div>
+          <div class="tab-pane text-center gallery" id="favorite">
+          <div class="row">
+
+
+
+              <div class="col-xl">
+
+
+
+              <h4> Redes Sociales</h4>
+
+                <br>
+                <div class="row">
+                  <div class="col-xl" >
+                    <p style="font-size: medium;" ><i class="fa fa-instagram">  {{profile_user.profile.instagram}}</i></p>
+                    <p style="font-size: medium;"><i class="fa fa-twitter">  {{profile_user.profile.twitter}}</i></p>
+                    <p style="font-size: medium;"><i class="fa fa-phone">  {{profile_user.profile.telefono}}</i></p>
+                  </div>
+              </div>
+              </div>
+
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+</div>
+
+<script src="{% static 'js/js-profile.js' %}" ></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+
+
+
+
+
+
+</body>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% block productosperfil %}
+
+            <!-- <h1>SOY TODOS LOS PRODUCTOS CON FUNCION =)!</h1> -->
+           
+            {% for p in productos %}
+               
+                <div class="col-md-1"></div>
+               
+                <dir class="col-md-3 ">
+                 
+                    <img src="{{p.imagen.url}}" width="200" height="200" style="border-radius: 5px;">
+        
+                </dir>
+                <dir class="col-md-2 text-center" >
+                    <h4><b> </b><strong>{{p.nombre}}</strong></h4>
+                    <p style="font-size: medium;"><b> </b>{{p.descripcion}}</p>
+                    {% if user == profile_user %}
+                        <a href="{% url 'productos:modificar' p.codigo %}"><i class="fa fa-edit fa-sm" style="color: black;"></i></a>
+                        <form method="POST" action="{% url 'productos:eliminar' p.codigo %}">{% csrf_token %}
+                            <button type="submit" class="btn"><a href=""></a> <i class="fa fa-trash fa-2x"></i></button>
+                        </form>
+                    {% endif %}
+                </dir>
+              
+
+            {% endfor %}
+
+
+
+
+{% endblock %}

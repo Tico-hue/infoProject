@@ -1,0 +1,33 @@
+.master{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    margin: 2% 2% 2% 9%;
+}
+
+.card{
+    width: 30%;
+    margin: 5px 5px;
+    height: 350px;
+    border-radius: 10px;
+    border-color: #7ead3994;
+}
+
+.card-text{
+    /como para que el scroll no aparezca en todos/
+    overflow: hidden;
+    max-height: 4em;/* 4 veces la altura de la letra M*/
+    padding-top: 1em;
+    font-weight: 600;
+    line-height: 1em;
+
+}
+
+.letra{
+    font-weight: bold;
+
+}
+
+.btn .btn-primary{
+    margin-top: 0.25em;
+}

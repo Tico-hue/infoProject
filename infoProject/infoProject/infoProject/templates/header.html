@@ -1,0 +1,88 @@
+{% load static %}
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row flex-nowrap ">
+              <div class="col-lg-2">
+                <div class="header__logo">
+                    <a href="{% url 'base' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                </div>
+              </div>
+                <div class="col-lg-6 mt-3">
+                    {% if 'perfil' not in request.path %}
+                        
+                    {% include 'searchVar.html' %}
+             
+                    {% endif %}
+                </div>
+                  <div class="col-lg-4 col-md-6 mt-2">
+                    <div class="header__top__right ml-5 pl-5 ">
+                      {% if user.is_authenticated %}    
+                      <div class="header__top__right__auth">
+                      <li class="nav-item dropdown no-arrow">
+                        <a
+                          class="nav-link dropdown-toggle"
+                          href="#"
+                          id="userDropdown"
+                          role="button"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <span class="mr-2 d-none d-lg-inline text-gray-600 small user-name">{{user.username}}</span>
+                          <img class="img-profile avatar rounded-circle" src="{{user.profile.image.url }}" />
+                        </a>
+                        
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-m enu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="{% url 'userprofile' user.username %}">
+                                <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Perfil
+                            </a>
+                            <a class="dropdown-item" href="{% url 'productos:crear' %}">
+                                <i class="fa fa-plus-square fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Crear Producto
+                                
+                            </a>
+                          
+        
+                            <a class="dropdown-item" href="{% url 'logout' %}">
+                                <i class="fa fa-sign-out fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Salir
+                            </a>
+                           
+
+                        </div>
+                      </li>
+                            
+                      </div>
+                          {% else %}
+
+                    <div class="header__top__right__auth">
+
+                        <button class="btn"  style="background-color: #7FAD39;" data-toggle="modal" data-target="#modalIngresar">
+                            <a href="{% url 'login' %}" style='color: #fff; font-style: normal;font-weight: bold;'  >Ingresar</a>
+                        </button>
+                      
+
+
+                        <div class="header__top__right__auth">
+                            <button class="btn " style="background-color: #7FAD39;">
+                                <a href="{% url 'Registro' %}"  style='color: #fff; font-style:unset;font-weight: bold;' > Crear Cuenta</a>
+                            </button>
+                        </div>
+                        {% endif %}
+                       <!-- Modal Registro-->
+
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+ 
+</header>

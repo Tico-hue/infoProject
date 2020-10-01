@@ -1,0 +1,32 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../static/css/emprendedores.css">
+
+<body>
+    <h1 class="letra">Prueba de Perfiles</h1>
+
+    <div class="master">
+        {% for p in perfiles %}
+        <div class="card" style="width: 18rem; height: 25rem;">
+            <div class="card-body">
+                <h4 class="card-title">
+                    <span class="letra">
+                        <center>
+                            {{p.user.username}}
+                        </center>
+                    </span> </h4>
+                {% if p.image %}
+                <img src="{{p.image.url}}" class="card-img-top" width="200" height="200">
+                {% else %}
+                <p>NO TENGO IMAGEN</p>
+                {% endif %}
+                <p class="card-text"> {{p.aboutus}}</p>
+                <!--    p es user.profile   -->
+                <a href="{% url 'userprofile' p.user.username %}" class="btn btn-primary">Ver perfil</a>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
