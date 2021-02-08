@@ -22,7 +22,7 @@ We aim to provided a space for opportunity to local entrepeneurs to help kicksta
 ![](screenshots/homepage.jpg? "Home Page")
 
 ## Overview video
-[![infoProject](https://img.youtube.com/vi/xL6QrUc2ShQ&feature=youtu.be/0.jpg)](https://www.youtube.com/watch?v=xL6QrUc2ShQ&feature=youtu.be​)
+[![infoProject](https://img.youtube.com/vi/xL6QrUc2ShQ/3.jpg)](https://www.youtube.com/watch?v=xL6QrUc2ShQ&feature=youtu.be​)
 
 ## Installation
 
