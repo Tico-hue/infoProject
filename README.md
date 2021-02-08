@@ -25,7 +25,7 @@ We aim to provided a space for opportunity to local entrepeneurs to help kicksta
 
 
 
-## Screenshots
+## Home Page Screenshot
 ![](screenshots/homepage.jpg? "Home Page")
 
 ## Overview video
