@@ -15,6 +15,11 @@ We aim to provided a space for opportunity to local entrepeneurs to help kicksta
 ##### Profile search and filtering 
 
 
+## Technologies used
+#### Django 
+#### Ajax
+#### SqlServer
+#### Bootstrap
 
 
 
@@ -22,7 +27,44 @@ We aim to provided a space for opportunity to local entrepeneurs to help kicksta
 ![](screenshots/homepage.jpg? "Home Page")
 
 ## Overview video
+its in spanish but it shows the web 
 [![infoProject](https://img.youtube.com/vi/xL6QrUc2ShQ/3.jpg)](https://www.youtube.com/watch?v=xL6QrUc2ShQ&feature=youtu.be​)
 
 ## Installation
 
+Place yourself in 
+```console
+infoProject\requiremnts
+``` 
+and run in your console (You can use virtualenv) 
+```console
+pip intall -r requirements.txt
+```
+
+After that you have to create a DB called 'ProjectInfo' in SQLServer
+or if you want to use another DB you must change it in 
+```console
+\infoProject\infoProject\infoProject\settings\local.py
+```
+```json 
+DATABASES = {
+    'default': {
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'ProjectInfo',
+        'Trusted_Connection':'yes',
+        'HOST':'localhost\SQLEXPRESS',
+        'OPTIONS':{
+            'driver':'SQL Server Native Client 11.0'
+        },
+    },
+ ```
+Then place yourself in infoProject\infoProject\infoProject and run 
+```console
+python manage.py makemigrations 
+python manage.py migrate
+python manage.py runserver
+```
+Now you can just open 
+```console
+localhost:8000 
+```
