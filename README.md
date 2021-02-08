@@ -15,6 +15,8 @@ We aim to provided a space for opportunity to local entrepeneurs to help kicksta
 ##### Profile search and filtering 
 
 
+
+
 ## Technologies used
 #### Django 
 #### Ajax
@@ -27,7 +29,7 @@ We aim to provided a space for opportunity to local entrepeneurs to help kicksta
 ![](screenshots/homepage.jpg? "Home Page")
 
 ## Overview video
-its in spanish but it shows the web 
+##### its in spanish but it shows the web 
 [![infoProject](https://img.youtube.com/vi/xL6QrUc2ShQ/3.jpg)](https://www.youtube.com/watch?v=xL6QrUc2ShQ&feature=youtu.be​)
 
 ## Installation
@@ -64,7 +66,7 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 ```
-Now you can just open 
+Now you can just open in your browser
 ```console
 localhost:8000 
 ```
