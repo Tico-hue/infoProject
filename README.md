@@ -18,7 +18,7 @@ We aim to provided a space for opportunity to local entrepeneurs to help kicksta
 
 
 ## Screenshots
-![Alt text](/../<master>/screenshots/homepage.jpg?raw=true "Home Page")
+![](<master>/screenshots/homepage.jpg?raw=true "Home Page")
 
 ## Installation
 Provide step by step series of examples and explanations about how to get a development env running.
