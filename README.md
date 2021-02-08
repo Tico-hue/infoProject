@@ -43,7 +43,7 @@ and run in your console (You can use virtualenv)
 pip intall -r requirements.txt
 ```
 
-After that you have to create a DB called 'ProjectInfo' in SQLServer
+After that, you have to create a DB called 'ProjectInfo' in SQLServer
 or if you want to use another DB you must change it in 
 ```console
 \infoProject\infoProject\infoProject\settings\local.py
@@ -60,13 +60,13 @@ DATABASES = {
         },
     },
  ```
-Then place yourself in infoProject\infoProject\infoProject and run 
+Then, place yourself in infoProject\infoProject\infoProject and run 
 ```console
 python manage.py makemigrations 
 python manage.py migrate
 python manage.py runserver
 ```
-Now you can just open in your browser
+Now you can just open it in your browser
 ```console
 localhost:8000 
 ```
