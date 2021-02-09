@@ -1,11 +1,11 @@
-# Kakuaa for Entrepenuers
+# Kakuaa for Entrepeneurs
 ## infoProject.
 
-It is a webb app mainly directed to starting entrepenuers that want to extend their reach, visibility to pontencial clients and engagement.
+It is a webb app mainly directed to starting entrepeneurs that want to extend their reach, visibility to pontential clients and engagement.
 
-Its porpose is to boost these businesses exposure allowing the user to personalize their profile and showcase their products or services.
+Its purpose is to boost these businesses exposure allowing the user to personalize their profile and showcase their products or services.
 
-We aim to provided a space for opportunity to local entrepeneurs to help kickstart their business. 
+We aim to provide a space for opportunity to local entrepeneurs to help kickstart their business. 
 
 ## Features
 ##### User Registration 
